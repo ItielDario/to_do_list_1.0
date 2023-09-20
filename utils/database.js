@@ -7,9 +7,9 @@ class Database {
   constructor(){
     this.#conexao = mysql.createPool({
       host: '132.226.245.178', 
-      database: 'PFS1_104422218209', 
-      user: '104422218209', 
-      password: '104422218209',
+      database: 'PFS1_10442221876', 
+      user: '10442221876', 
+      password: '10442221876',
     });
   }
   

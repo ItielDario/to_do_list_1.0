@@ -14,12 +14,7 @@ class tarefaController {
     let lista = await listarTarefa.listar();
     const tarefa = req.body.descricaoTarefa;
     
-    if(tarefa == ''){
-      res.render('tarefas', { validacao: 'alert-danger', text: 'Por favor, preencha o campo abaixo!', lista: lista });
-    }
-    else{
-      res.render('tarefas', { validacao: 'alert-success', text: 'Tarefa incluída com sucesso!', lista: lista  });
-    }
+    
   }
 
   async listarTarefa(res, req){
