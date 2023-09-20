@@ -1,5 +1,5 @@
 const express = require('express');
-const tarefaController = require('./controller/tarefaController');
+const tarefaRouter = require('./router/tarefaRoute');
 const { urlencoded } = require('body-parser');
 const bodyParser = require('body-parser');
 const app = express();
@@ -15,8 +15,6 @@ app.listen(3000, () => {
     console.log('Server running');
 });
 
-const tarefa = new tarefaController();
+// ROTA
+const tarefa = new tarefaRouter();
 app.use('/', tarefa.router);
-
-let banco = new Database();
-banco.listar();

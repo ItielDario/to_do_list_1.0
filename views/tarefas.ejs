@@ -1,44 +1,58 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lista de tarefas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lista de tarefas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-    <!-- MEU CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-  </head>
-  <body>
-    
-    <main>
-        <section class="container">
-            <article class="box-title">
-                <h1>Lista de tarefas</h1>
-            </article>
+  <!-- MEU CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main>
+    <section class="container">
+      <article class="box-title">
+        <h1>Lista de tarefas</h1>
+      </article>
 
-            <section id="msg">
-                <% if(typeof validacao != 'undefined') { %>
-                  <aside class="alert <%= validacao %>"><%= text %></aside>
-                <% } %>
-            </section>
-
-            <section  class="box-form">  
-                <form action="/" method="post">            
-                    <input type="text" class="form-control" id="descricaoTarefa" name="descricaoTarefa" placeholder="Digite uma tarefa">
-                
-                   <input type="submit" id="btn-inserir" class="btn btn-success col btn-submit" value="Incluir">
-                </form>
-            </section>
-
-            <article class="box-list-tasks">
-
-            </article>
+      <section id="msg">
+        <% if(typeof validacao != 'undefined') { %>
+          <aside class="alert <%= validacao %>"><%= text %></aside>
+        <% } %>
         </section>
-    </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+      <section  class="box-form">  
+        <form action="/" method="post">            
+          <input type="text" class="form-control" id="descricaoTarefa" name="descricaoTarefa" placeholder="Digite uma tarefa">
+        
+          <input type="submit" id="btn-inserir" class="btn btn-success col btn-submit" value="Incluir">
+        </form>
 
-    
-  </body>
+        <article class="box-list-tasks">
+          <table class="table table-striped">
+            <thead class="bg-dark">
+              <tr>
+                <th>Id</th>
+                <th>Tarefas</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <% for(let i = 0; i < lista.length; i++){ %>
+              <tr>
+                <td><%= lista[i].tar_id %></td>
+                <td><%= lista[i].tar_descricao %></td>
+                <td>
+                  <img data-id="<%= lista[i].usuId %>" class="btn_excluir" src="/images/btn_excluir.png" href="">
+                </td>
+              </tr>
+            <% } %>
+          </table>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
 </html>

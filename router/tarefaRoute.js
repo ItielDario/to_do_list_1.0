@@ -1,20 +1,22 @@
+const express = require('express');
+const Controller = require('../controller/tarefaController.js');
+
 class TarefaRouter{
 
-    viewGet(req, res){
-        res.render('tarefas');
-    }
+  #router
 
-    viewPost(req, res){
-        const tarefa = req.body.descricaoTarefa;
-        console.log(tarefa);
-        
-        if(tarefa == ''){
-            res.render('tarefas', { validacao: 'alert-danger', text: 'Por favor, preencha o campo abaixo!' });
-        }
-        else{
-            res.render('tarefas', { validacao: 'alert-success', text: 'Tarefa incluída com sucesso!' });
-        }
-    }
+  constructor(){
+    this.#router = express.Router();
+
+    let ctrl = new Controller();
+
+    this.#router.get('/', ctrl.viewGet);
+    this.#router.post('/', ctrl.viewPost);
+  }
+
+  get router(){
+    return this.#router
+  }
 }
 
 module.exports = TarefaRouter;

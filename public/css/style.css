@@ -65,7 +65,7 @@ main{
 }
 
 .box-form{
-    margin-top: 1.5vw;
+    margin-top: 2vw;
 }
 
 form{
@@ -85,5 +85,15 @@ form{
 
 .box-list-tasks{
     border-top: 1px solid rgb(195, 195, 195);
-    margin-top: 20px;
+    margin-top: 3vw;
 }
+
+table{
+  font-size: 1.3vw;
+}
+
+.btn_excluir{
+  cursor: pointer;
+  width: 1.8vw;
+}
+
